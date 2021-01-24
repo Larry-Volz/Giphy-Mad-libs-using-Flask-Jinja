@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% block card_contents %}
 <div class="card bg-info text-light m-3">
-    <form action="" id="promps-form" class="form-group justify-content-center form-inline" >
+    <form action="mad-libs.html" id="promps-form" class="form-group justify-content-center form-inline" >
         <!-- TODO:
         - for each prompt in prompts_list passed via POST
         - show prompt in input & gather responses
         - send GET back to app through form
         -->
-        <h1>{{ story_selection }}</h1>
+        <h1>{{ title }}</h1>
 
         <div class="col-11 justify-content-start">
             {{ final_story }}
         </div>
-
+        <br><br><br><br>
 
         <!-- <label for="story-selector" class="ml-3 card-title text-center display-4">Pick a Story</label>
         <p class="card-text text-center ">
@@ -29,7 +29,7 @@
             <div class="row">
                 
                 <div class="input-group-append">
-                    <button class="btn btn-success border rounded shadow-lg mr-2 py-2" type="button" >Play again</button>
+                    <button class="btn btn-success border rounded shadow-lg mr-2 py-2" type="submit" value="submit">Play again</button>
                 </div>
             </div>
         

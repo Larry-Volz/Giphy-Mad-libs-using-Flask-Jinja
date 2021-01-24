@@ -11,11 +11,9 @@ debug=DebugToolbarExtension(app)
 
 #VARIABLES
 story_selection=""
+story=""
 answers={}
-story = Story(
-    ["place", "noun", "verb", "adjective", "plural_noun"],
-    """Once upon a time in a long-ago {place}, there lived a
-       large {adjective} {noun}. It loved to {verb} {plural_noun}.""")
+
 
 #ROUTES
 @app.route('/mad-libs.html')
@@ -27,15 +25,27 @@ def mad_libs():
 def parts_of_speech():
     """renders page to gather user answers to prompts"""
     global story_selection 
+    global story
+    global title
+
     story_selection = request.form["story_selection"]
-    return render_template("parts-of-speech.html", story_selection=story_selection, prompts=story.prompts)
+    if story_selection == "three_pigs":
+        story = Story(three_pigs["prompts"], three_pigs['text'])
+        title=three_pigs["title"]
+    elif story_selection == "wolf_boy":
+        story = Story(wolf_boy["prompts"], wolf_boy['text'])
+        title=wolf_boy["title"]
+    elif story_selection == "star_wars":
+        story = Story(star_wars["prompts"], star_wars['text'])
+        title=star_wars["title"]
+        
+    return render_template("parts-of-speech.html", prompts=story.prompts,title=title)
 
 @app.route('/show_story.html', methods = ['POST'])
 def story_generator():
     """renders finished story to story.html page"""
-    #TODO: Get story from parts-of-speech.html next instead of hard-coding
     for prompt in story.prompts:
         answers[prompt] = request.form[prompt]
         final_story = story.generate(answers)
 
-    return render_template("show_story.html", story_selection=story_selection, final_story=final_story)
+    return render_template("show_story.html", final_story=final_story,title=title)

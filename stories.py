@@ -31,7 +31,7 @@ class Story:
 
         story_final = self.template
 
-        for (key, val) in answers.items():
+        for (key, val) in answers.items(): #answers should be in {prompt:answer, prompt:answer} format
             story_final = story_final.replace("{" + key + "}", val)
 
         return story_final
