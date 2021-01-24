@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block card_contents %}
+<div class="card bg-info text-light m-3">
+    <form action="" id="promps-form" class="form-group justify-content-center form-inline" >
+        <!-- TODO:
+        - for each prompt in prompts_list passed via POST
+        - show prompt in input & gather responses
+        - send GET back to app through form
+        -->
+        <h1>{{ story_selection }}</h1>
+
+        <div class="col-11 justify-content-start">
+            {{ final_story }}
+        </div>
+
+
+        <!-- <label for="story-selector" class="ml-3 card-title text-center display-4">Pick a Story</label>
+        <p class="card-text text-center ">
+            Choose a story that we will use to make a "Mad-lib". 
+        </p>
+        <div class="input-group">
+            <select class="form-control col-10 m-2 shadow-lg" id="story-selector">
+            <option>The 3 little pigs</option>
+            <option>The boy who cried wolf</option>
+            <option>Star Wars</option>
+            <!-- Possible TODO: AddElement of additional stories - add-able by users -->
+            </select>
+            <br><br><br><br>
+            <div class="row">
+                
+                <div class="input-group-append">
+                    <button class="btn btn-success border rounded shadow-lg mr-2 py-2" type="button" >Play again</button>
+                </div>
+            </div>
+        
+        </div> 
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block card_contents %}
+<div class="card bg-warning text-light m-3">
+    <form action="show_story.html" id="promps-form" name ="promps-form" class="form-group form-inline justify-content-center" method="POST">
+        <!-- TODO:
+        - for each prompt in prompts_list passed via POST
+        - show prompt in input & gather responses
+        - send GET back to app through form
+        -->
+        <h1 class="card-title text-center">{{ story_selection }}</h1>
+        <h2 class="card-subtitle text-center">Make up your own story!</h2>
+        <p class="card-text text-center">Fill in the blanks to make this story all your own!</p>
+        <!-- <p class="card-text"> -->
+            <div class="justify-content-start">
+                    {% for prompt in prompts %}
+                    <p>
+                        <label for="{{prompt}}">{{prompt}}</label>
+                        <input type="text" name= "{{prompt}}" id= "{{prompt}}" class="form-control mx-4">
+                    </p>
+                    {% endfor %}
+        
+            </div>
+            
+        </select>
+        <div class="input-group-append">
+            <button class="btn btn-primary border rounded shadow-lg m-3 py-1" type="submit" value="submit" style="display: block;">Create Story!</button>
+        </div>
+        
+    </div> 
+</form>
+</div>
+</div>
+{% endblock %}

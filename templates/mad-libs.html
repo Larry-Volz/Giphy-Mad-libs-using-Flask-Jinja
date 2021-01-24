@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block card_contents %}
+<div class="card bg-success text-light m-3">
+    <form action="parts-of-speech.html" id="pick-a-story-form" class="form-group form-inline justify-content-center" method="POST">
+        <label for="story-selector" class="ml-3 card-title text-center display-4">Pick a Story</label>
+        <p class="card-text text-center ">
+            Choose a story that we will use to make a "Mad-lib".
+        </p>
+            <div class="input_group">
+                <select id="story_selector" name="story_selection" class="form-control m-2 shadow-lg" >
+                <option value="The 3 little pigs">The 3 little pigs</option>
+                <option value="The boy who cried wolf">The boy who cried wolf</option>
+                <option value="Star Wars">Star Wars</option>
+                <!-- Possible TODO: AddElement of additional stories - add-able by users -->
+                </select>
+            </div>
+            <div class="input-group-append" >
+                <button class="btn btn-primary border rounded shadow-lg mr-2 py-1" type="submit" value="submit">Pick</button>
+            </div>
+    </form>
+</div>
+
+{% endblock %}
